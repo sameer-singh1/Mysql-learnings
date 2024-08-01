@@ -14,3 +14,5 @@ select email from employees where email regexp '[ba|do]';
 select email from employees where email regexp '[a-d].[o]';/*email with a to d then any character followed by o*/
 select email from employees where email regexp '[a-d]...[o]';/*email with a to d then any 3 character followed by o*/
 select email from employees;
+select email from employees where email regexp '^[^DCL]*$';/*email without dcl*/
+select email from employees where email regexp 'do[[:>:]]';/*email ending with do*/
