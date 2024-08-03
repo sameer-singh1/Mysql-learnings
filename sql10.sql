@@ -63,3 +63,48 @@ set sql_safe_updates=0;
 update sales_info set quantity=100;
 
 select * from sales_info;
+
+insert into sales_info values(3,'Maruti',150),(4,'kia',250);
+select * from sales_info;
+
+show triggers;
+
+set sql_safe_updates=0;
+update sales_info set quantity = 400 where id = 3;
+update sales_info set quantity = 400 where id = 4;
+
+/*delimiter //
+create trigger upd_check before update on sales_info for each row
+begin
+if new.quantity<0 then set new.quantity=0;
+else if new.quantity > 100 then set new.quantity=100;
+end if;
+end //
+delimiter;*/
+
+delimiter $$
+create trigger upd_check before update on sales_info
+for each row
+begin
+if new.quantity<0 then
+set new.quantity=0;
+elseif new.quantity>100 then
+set new.quantity=100;
+end if;
+end $$
+
+show triggers;
+
+/*after trigger*/
+
+create table members (id int auto_increment,name varchar(100) not null,email varchar(255),primary key(id));
+create table reminders (id int auto_increment, memberid int, primary key(id,memberid));
+
+alter table members add birth_date date;
+
+delimiter $$
+create trigger after_members_insert
+after insert
+on members for each row
+begin
+if new.birthdate is null then insert
