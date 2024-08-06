@@ -103,7 +103,8 @@ create table reminders (id int auto_increment, memberid int, primary key(id,memb
 
 alter table members add birth_date date;
 alter table reminders add  message varchar(255);
-
+desc members;
+desc reminders;
 
 delimiter $$
 create trigger after_members_insert
@@ -124,6 +125,8 @@ desc reminders;
 show triggers;
 select * from members;
 select * from reminders;
+insert into members(name,email,birth_date) values ('altaf','a@yahhoo.com','2024-01-01');
+insert into members(name,email,birth_date) values ('baby','a@yahhoo.com',null);
 
 insert into members(name,email,birth_date) values ('sameer1','s1@gmail.com','2002-01-01');
 insert into members(name,email,birth_date) values ('arti1','a1@gmail.com','2020-01-01');
