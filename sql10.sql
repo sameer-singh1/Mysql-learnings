@@ -92,6 +92,7 @@ elseif new.quantity>100 then
 set new.quantity=100;
 end if;
 end $$
+delimiter ;
 
 show triggers;
 
@@ -101,10 +102,32 @@ create table members (id int auto_increment,name varchar(100) not null,email var
 create table reminders (id int auto_increment, memberid int, primary key(id,memberid));
 
 alter table members add birth_date date;
+alter table reminders add  message varchar(255);
+
 
 delimiter $$
 create trigger after_members_insert
 after insert
 on members for each row
 begin
-if new.birthdate is null then insert
+if new.birth_date is null then 
+insert into reminders(memberid,message) values (new.id,concat('hi',new.name,'please update your date of birth'));
+end if;
+end $$
+delimiter ;
+
+use sameer;
+
+desc members;
+desc reminders;
+
+show triggers;
+select * from members;
+select * from reminders;
+
+insert into members(name,email,birth_date) values ('sameer1','s1@gmail.com','2002-01-01');
+insert into members(name,email,birth_date) values ('arti1','a1@gmail.com','2020-01-01');
+
+insert into members(name,email,birth_date) values ('sameer','s@gmail.com',null);
+insert into members(name,email,birth_date) values ('amit','as@gmail.com',null);
+

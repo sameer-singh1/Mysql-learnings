@@ -35,7 +35,7 @@ insert into c101 values(105,'Amit');
 create or replace view c101 as select c_id,c_name,c_salary from customer; /*change in views*/
 select * from c101;
 
-alter table c101 add c_per int);
+alter table c101 add c_per int;
 update customer set c_name='Amit' where c_id=102;
 
 alter table c101 drop c_salary;
