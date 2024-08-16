@@ -4,9 +4,9 @@
 **sql5.sql** -*joins(inner,left,right,cross,self),having* <br><br>
 **sql6.sql** -*union,union all,exists,any* <br><br>
 **sql7.sql** -*not null,unique,primary key,foreign key* <br><br>
-**sql8.sql.** -*check,default,datetime,viws*
-**sql9.sql.** -*regular expression*
-**sql10.sql.** -*triggers*
-**sql11.sql.** -*cte*
-**sql12.sql.** -*procedure*
-**sql13.sql.** -*windows function*
+**sql8.sql.** -*check,default,datetime,viws* <br><br>
+**sql9.sql.** -*regular expression* <br><br>
+**sql10.sql.** -*triggers* <br><br>
+**sql11.sql.** -*cte* <br><br>
+**sql12.sql.** -*procedure* <br><br>
+**sql13.sql.** -*windows function* <br><br>
